@@ -25,7 +25,7 @@ export default function App() {
       </div>
 
       {/* AboutUs: Pulls up behind Home */}
-      <div className="relative -mt-30 z-40">
+      <div className="relative -mt-30 z-50">
         <AboutUs />
       </div>
 
@@ -40,7 +40,7 @@ export default function App() {
       </div>
 
       {/* Tokenomics: Bottom layer */}
-      <div className="relative -mt-1 z-70">
+      <div className="relative -mt-[383px] z-70">
         <Tokenomics />
       </div>
     </div>

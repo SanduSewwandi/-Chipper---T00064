@@ -15,16 +15,17 @@ export default function Chippernomics() {
       }}
     >
       {/* Chipper Character - left side leaning */}
-      <div className="absolute left-0 sm:left-10 md:left-20 lg:left-40 xl:left-145 bottom-40 z-60 w-48 sm:w-64 md:w-80 lg:w-96 pointer-events-none">
-        <img
-          src={chipperWave}
-          alt="Chipper Character"
-          className="w-full h-auto object-contain"
-        />
-      </div>
+     {/* Adjusted left values: reduced the positive offsets to move it further left */}
+<div className="absolute left-[-10px] sm:left-0 md:left-5 lg:left-10 xl:left-90 -translate-y-10 bottom-45 z-60 w-48 sm:w-64 md:w-80 lg:w-96 pointer-events-none">
+  <img
+    src={chipperWave}
+    alt="Chipper Character"
+    className="w-full h-auto object-contain"
+  />
+</div>
 
       {/* Right side: Card + Screenshot stacked */}
-      <div className="relative z-30 flex flex-col gap-4 w-full max-w-sm sm:max-w-md md:max-w-lg mr-0 md:mr-8 -mt-[140px]">
+      <div className="relative z-30 flex flex-col sm:right-25 md:right-25 lg:right-20 -translate-y-10 gap-4 w-full max-w-md sm:max-w-lg md:max-w-2xl mr-0 md:mr-4 -mt-[100px]">
 
         {/* Chippernomics Card */}
         <div className="bg-white border-[3px] border-black rounded-[2rem] p-6 md:p-22 w-full">
