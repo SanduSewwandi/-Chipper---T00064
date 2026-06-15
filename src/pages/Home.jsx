@@ -5,7 +5,7 @@ import chipperWave from '../assets/home- image.png';
 export default function Home() {
   return (
     <div id="home" className="w-full flex flex-col min-h-screen">
-      {/* Custom animation: Moves character further left and up toward the text */}
+    
       <style>{`
         @keyframes move-and-float {
           0%, 100% { 
@@ -18,7 +18,7 @@ export default function Home() {
             transform: translate(-350px, -130px); 
           }
           75% { 
-            transform: translate(-350px, -150px); 
+            transform: translate(-450px, -180px); 
           }
         }
         @keyframes text-float {
@@ -65,7 +65,7 @@ export default function Home() {
 
             {/* Positioned to the end (right) of the container */}
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl mt-6 md:mt-8 lg:mt-11 font-black text-black tracking-wide select-none text-right animate-text-float"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-6 md:mt-10 lg:mt-12 font-black text-black tracking-wide select-none text-right animate-text-float"
               style={{
                 fontFamily: '"Comic Sans MS", "Chalkboard SE", sans-serif',
               }}

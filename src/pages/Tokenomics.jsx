@@ -16,7 +16,7 @@ export default function ChipperLanding() {
   };
 
   return (
-    <div className="w-full flex flex-col font-sans select-none overflow-x-hidden">
+    <div  id="tokenomics" className="w-full flex flex-col font-sans select-none overflow-x-hidden">
       
       <style>{`
         /* On mobile the keyframe centres the gif and nudges it right a bit */
@@ -50,20 +50,16 @@ export default function ChipperLanding() {
           backgroundSize: '100% 100%',
           backgroundPosition: 'top center',
           backgroundRepeat: 'no-repeat',
-          /* Matches the original bg aspect ratio (approx 780×540 Figma) */
           aspectRatio: '780 / 540',
-          minHeight: '260px',
-          /* Cap so it doesn't go taller than the viewport on very wide screens */
+          minHeight: '1060px',
           maxHeight: '100vh',
         }}
       >
         {/* CONTRACT ADDRESS
-            Original: right-4 md:right-12, bottom-40 md:bottom-155
-            We keep right positions. For bottom we convert to % so it
-            tracks correctly at every scale.                              */}
+                                        */}
         <div
           className="absolute right-4 md:right-12 z-20"
-          style={{ bottom: '52%' }}          
+          style={{ bottom: '55%' }}          
         >
           <div className="flex items-center gap-2 md:gap-4 bg-white border-4 border-black rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-auto"
             style={{ maxWidth: 'clamp(130px, 38vw, 520px)' }}
@@ -98,9 +94,9 @@ export default function ChipperLanding() {
 
         {/* FLOATING GIF */}
         <div
-          className="absolute top-1/2 left-1/2 md:left-[300px] z-10 pointer-events-none animate-slide-right"
+          className="absolute top-1/2 left-1/2 md:left-[100px] z-10 pointer-events-none animate-slide-right"
           style={{
-            marginTop: '-250px',     
+            marginTop: '-150px',     
           }}
         >
           <img 
@@ -127,10 +123,7 @@ export default function ChipperLanding() {
         <div className="flex-grow" />
       </div>
 
-      {/* SECTION 2: SAND BASE FLOOR
-          Original used fixed padding + minHeight: 200px.
-          We keep layout identical; only fluid-ise vertical padding so the
-          sand strip scales with the scene above it.                     */}
+      {/* SECTION 2: SAND BASE FLOOR   */}
       <div 
         className="w-full relative mt-[-1px]"
         style={{ 
@@ -165,7 +158,7 @@ export default function ChipperLanding() {
 
           {/* COMMUNITY BOX — original layout preserved exactly */}
           <div className="relative flex flex-col items-center w-full md:w-auto order-1 md:order-2">
-            <div className="absolute top-0 right-2 md:right-0 -translate-y-[120%] pb-2 z-20 pointer-events-none">
+            <div className="absolute top-0 right-2 md:right-0 -translate-y-[140%] pb-2 z-20 pointer-events-none">
               <img 
                 src={infoBoxIcon} 
                 alt="Community Header Asset" 
