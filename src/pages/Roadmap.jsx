@@ -34,7 +34,7 @@ const phases = [
 function PhaseCard({ phase, className = "" }) {
   return (
     <div
-      className={`bg-white border-4 border-black rounded-2xl p-5 sm:p-6 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] text-center w-full max-w-sm z-30 animate-corner-in ${className}`}
+      className={`bg-white border-4 border-black rounded-2xl p-5 sm:p-6 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] text-center z-30 animate-corner-in ${className}`}
     >
       <h3
         className="text-lg sm:text-xl font-black text-black mb-2"
@@ -56,7 +56,7 @@ export default function Roadmap() {
   return (
     <section
       id="roadmap"
-      className="relative w-full min-h-screen flex flex-col items-center py-16 sm:py-20 px-4 sm:px-6 overflow-hidden"
+      className="relative w-full flex flex-col items-center py-16 sm:py-20 px-4 sm:px-6 overflow-hidden"
       style={{
         backgroundImage: `url(${rectangle2})`,
         backgroundSize: "cover",
@@ -74,75 +74,87 @@ export default function Roadmap() {
         }
       `}</style>
 
+      {/* ── TITLE ── */}
       <h2
-        className="text-3xl sm:text-4xl md:text-5xl font-black text-black z-50 text-center mb-10 lg:mb-0 lg:absolute lg:top-12 lg:right-16"
+        className="text-3xl sm:text-4xl md:text-5xl font-black text-black z-50 text-center mb-8
+                   lg:absolute lg:top-12 lg:right-16 lg:mb-0"
         style={{ fontFamily: '"Baloo 2", "Comic Sans MS", cursive' }}
       >
         Roadmap
       </h2>
 
-      {/* ---------- Mobile / Tablet: clean stacked layout ---------- */}
-      <div className="w-full max-w-3xl mx-auto flex flex-col items-center gap-8 lg:hidden z-20 ">
-       <PhaseCard phase={phases[0]} />
-  <div className="relative w-full flex items-center z-50 min-h-[250px] translate-x-[3%]">
-    <PhaseCard phase={phases[1]} />
-  </div>
+      {/* ════════════════════════════════════════
+          MOBILE / TABLET  (hidden on lg+)
+      ════════════════════════════════════════ */}
+      <div className="lg:hidden w-full max-w-sm mx-auto flex flex-col gap-6 z-10">
 
-  {/* Middle: Roadmap Center Image */}
-  <img
-    src={roadmapCenterImage || "/placeholder.svg"}
-    alt="Roadmap Center"
-    className="w-24 h-auto object-contain my-4"
-  />
+        {/* Phase 01 — right */}
+        <PhaseCard phase={phases[0]} className="w-[68%] ml-auto" />
 
-  {/* Bottom: Phase 03 and 04 */}
-  <PhaseCard phase={phases[2]} />
-  <PhaseCard phase={phases[3]} />
-        <div className="flex items-center justify-center gap-2 w-full mt-4">
-          <img
-            src={chipperCharacter2 || "/placeholder.svg"}
-            alt="Chipper Character Base"
-            className="w-[70%] max-w-[1000px] h-auto object-contain translate-x-[70%] translate-y-[77%]"
-          />
-          <img
-            src={chipperCharacter || "/placeholder.svg"}
-            alt="Chipper Character"
-            className="w-[135%] max-w-[3000px] h-auto object-contain -translate-x-[18%] -translate-y-[230%]"
-          />
+        {/* Phase 02 — card on left, character on right */}
+        <div className="relative flex items-center">
+          <PhaseCard phase={phases[1]} className="w-[68%] flex-shrink-0" />
+
+          {/* Character stacked absolutely to the right */}
+          <div className="absolute right-[-16px] bottom-[-20px] w-[48%] pointer-events-none z-20">
+            <img
+              src={chipperCharacter2 || "/placeholder.svg"}
+              alt=""
+              className="absolute bottom-0 right-0 w-full object-contain"
+              style={{ zIndex: 1 }}
+            />
+            <img
+              src={chipperCharacter || "/placeholder.svg"}
+              alt="Chipper Character"
+              className="relative w-[92%] object-contain ml-auto"
+              style={{ zIndex: 2, marginBottom: "4px" }}
+            />
+          </div>
         </div>
+
+        {/* Phase 03 — right */}
+        <PhaseCard phase={phases[2]} className="w-[68%] ml-auto mt-16" />
+
+        {/* Phase 04 — center */}
+        <PhaseCard phase={phases[3]} className="w-[68%] mx-auto" />
       </div>
 
-      {/* ---------- Desktop (lg+): scattered playful layout ---------- */}
-      <div className="relative hidden lg:block w-full max-w-6xl mx-auto aspect-[16/10] mt-16">
-        {/* Characters Layer */}
+      {/* ════════════════════════════════════════
+          DESKTOP  (hidden below lg)
+          Scattered cards around the character
+      ════════════════════════════════════════ */}
+      <div
+        className="relative hidden lg:block w-full max-w-6xl mx-auto mt-16"
+        style={{ minHeight: "600px" }}
+      >
+        {/* Characters */}
         <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center">
           <img
             src={chipperCharacter2 || "/placeholder.svg"}
-            alt="Chipper Character Base"
+            alt=""
             className="w-[100%] max-w-[930px] h-auto object-contain z-10 translate-x-[70%] translate-y-[77%]"
           />
           <img
             src={chipperCharacter || "/placeholder.svg"}
             alt="Chipper Character"
             className="w-[100%] max-w-[900px] h-auto object-contain z-20 -translate-x-[88%] -translate-y-[35%]"
-
           />
         </div>
 
-        {/* Center Piece */}
+        {/* Centre piece */}
         <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
           <img
             src={roadmapCenterImage || "/placeholder.svg"}
-            alt="Roadmap Artwork Center Piece"
+            alt="Roadmap Centre"
             className="w-[14%] min-w-[140px] h-auto object-contain"
           />
         </div>
 
-        {/* Phase Cards */}
-        <PhaseCard phase={phases[0]} className="absolute top-[1%] left-[2%]" />
-        <PhaseCard phase={phases[1]} className="absolute top-[20%] right-[6%]" />
-        <PhaseCard phase={phases[2]} className="absolute bottom-[20%] left-[4%]" />
-        <PhaseCard phase={phases[3]} className="absolute bottom-[4%] right-[10%]" />
+        {/* Phase cards — scattered */}
+        <PhaseCard phase={phases[0]} className="absolute top-[1%]  left-[2%]  max-w-sm" />
+        <PhaseCard phase={phases[1]} className="absolute top-[20%] right-[6%]  max-w-sm" />
+        <PhaseCard phase={phases[2]} className="absolute bottom-[20%] left-[4%] max-w-sm" />
+        <PhaseCard phase={phases[3]} className="absolute bottom-[4%]  right-[10%] max-w-sm" />
       </div>
     </section>
   )
