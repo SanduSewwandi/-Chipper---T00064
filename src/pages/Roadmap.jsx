@@ -84,40 +84,49 @@ export default function Roadmap() {
       </h2>
 
       {/* ════════════════════════════════════════
-          MOBILE / TABLET  (hidden on lg+)
-      ════════════════════════════════════════ */}
-      <div className="lg:hidden w-full max-w-sm mx-auto flex flex-col gap-6 z-10 bg-white">
+    MOBILE / TABLET  (hidden on lg+)
+════════════════════════════════════════ */}
+<div className="lg:hidden w-full max-w-sm mx-auto flex flex-col gap-6 z-10">
 
-        {/* Phase 01 — right */}
-        <PhaseCard phase={phases[0]} className="w-[68%] ml-auto" />
+  {/* Phase 01 — right */}
+  <PhaseCard phase={phases[0]} className="w-[68%] ml-auto" />
 
-        {/* Phase 02 — card on left, character on right */}
-        <div className="relative flex items-center">
-          <PhaseCard phase={phases[1]} className="w-[68%] flex-shrink-0" />
+  {/* Phase 02 — card on left, character on right */}
+  <div className="relative flex items-center">
+    <PhaseCard phase={phases[1]} className="w-[68%] flex-shrink-0" />
 
-          {/* Character stacked absolutely to the right */}
-          <div className="absolute right-[-16px] bottom-[-20px] w-[48%] pointer-events-none z-20">
-            <img
-              src={chipperCharacter2 || "/placeholder.svg"}
-              alt=""
-              className="absolute bottom-0 right-0 w-full object-contain"
-              style={{ zIndex: 1 }}
-            />
-            <img
-              src={chipperCharacter || "/placeholder.svg"}
-              alt="Chipper Character"
-              className="relative w-[92%] object-contain ml-auto"
-              style={{ zIndex: 2, marginBottom: "4px" }}
-            />
-          </div>
-        </div>
+    {/* Character stacked absolutely to the right */}
+    <div className="absolute right-[-16px] bottom-[-20px] w-[180%] pointer-events-none z-20">
+      {/* base / shadow layer — bottom, right, large */}
+      <img
+        src={chipperCharacter || "/placeholder.svg"}
+        alt=""
+        className="absolute -top-30 left-50 w-full object-contain scale-x-[-1]"
+        style={{ zIndex: 1 }}
+      />
+      {/* main character — top, left, large */}
+      <img
+        src={chipperCharacter || "/placeholder.svg"}
+        alt="Chipper Character"
+        className="absolute bottom-30 left-50 w-full object-contain"
+        style={{ zIndex: 2 }}
+      />
+    </div>
 
-        {/* Phase 03 — right */}
-        <PhaseCard phase={phases[2]} className="w-[68%] ml-auto mt-16" />
+    {/* roadmapCenterImage — right of Phase 02, above Phase 03 */}
+    <img
+      src={roadmapCenterImage || "/placeholder.svg"}
+      alt="Roadmap Center"
+      className="absolute right-[-15px] bottom-[-120px] w-[50%] object-contain z-40 scale-x-[-1]"
+    />
+  </div>
 
-        {/* Phase 04 — center */}
-        <PhaseCard phase={phases[3]} className="w-[68%] mx-auto" />
-      </div>
+  {/* Phase 03 — right */}
+  <PhaseCard phase={phases[2]} className="w-[68%] ml-auto mt-16" />
+
+  {/* Phase 04 — center */}
+  <PhaseCard phase={phases[3]} className="w-[68%] mx-auto" />
+</div>
 
       {/* ════════════════════════════════════════
           DESKTOP  (hidden below lg)
