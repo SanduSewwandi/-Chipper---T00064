@@ -86,11 +86,6 @@ export default function Roadmap() {
        <PhaseCard phase={phases[0]} />
   <div className="relative w-full flex items-center z-50 min-h-[250px] translate-x-[3%]">
     <PhaseCard phase={phases[1]} />
-    <img
-      src={chipperCharacter}
-      alt="Chipper Character"
-      className="absolute right-[-10%] w-24 h-auto object-contain z-40"
-    />
   </div>
 
   {/* Middle: Roadmap Center Image */}
