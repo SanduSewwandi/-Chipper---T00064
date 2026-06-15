@@ -86,7 +86,7 @@ export default function Roadmap() {
       {/* ════════════════════════════════════════
           MOBILE / TABLET  (hidden on lg+)
       ════════════════════════════════════════ */}
-      <div className="lg:hidden w-full max-w-sm mx-auto flex flex-col gap-6 z-10">
+      <div className="lg:hidden w-full max-w-sm mx-auto flex flex-col gap-6 z-10 bg-white">
 
         {/* Phase 01 — right */}
         <PhaseCard phase={phases[0]} className="w-[68%] ml-auto" />
