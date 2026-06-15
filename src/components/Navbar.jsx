@@ -22,7 +22,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 w-full z-90 bg-white/10 backdrop-blur-md">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-17">
 
