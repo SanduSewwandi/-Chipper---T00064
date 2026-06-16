@@ -5,37 +5,32 @@ import chipperWave from '../assets/home- image.png';
 export default function Home() {
   return (
     <div id="home" className="w-full flex flex-col min-h-screen">
-    
+
       <style>{`
         @keyframes move-and-float {
-          0%, 100% { 
-            transform: translate(0, 0); 
-          }
-          25% { 
-            transform: translate(-350px, -150px); 
-          }
-          50% { 
-            transform: translate(-350px, -130px); 
-          }
-          75% { 
-            transform: translate(-450px, -180px); 
-          }
+          0%, 100% { transform: translate(0, 0); }
+          25%       { transform: translate(-350px, -150px); }
+          50%       { transform: translate(-350px, -130px); }
+          75%       { transform: translate(-450px, -180px); }
         }
         @keyframes text-float {
           0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
+          50%       { transform: translateY(-10px); }
         }
-        .animate-move-float {
-          animation: move-and-float 6s ease-in-out infinite;
+        @keyframes mobile-float {
+          0%, 100% { transform: translateY(0); }
+          50%       { transform: translateY(-12px); }
         }
-        .animate-text-float {
-          animation: text-float 3s ease-in-out infinite;
-        }
+        .animate-move-float  { animation: move-and-float 6s ease-in-out infinite; }
+        .animate-text-float  { animation: text-float 3s ease-in-out infinite; }
+        .animate-mobile-float{ animation: mobile-float 3s ease-in-out infinite; }
       `}</style>
 
-      {/* ----------------- HERO SECTION ----------------- */}
+      {/* ═══════════════════════════════════════════
+          DESKTOP  (hidden below md) — UNCHANGED
+      ═══════════════════════════════════════════ */}
       <section
-        className="relative z-10 min-h-screen w-full flex flex-col justify-between overflow-hidden"
+        className="relative z-10 min-h-screen w-full hidden md:flex flex-col justify-between overflow-hidden"
         style={{
           backgroundImage: `url(${homeBg})`,
           backgroundSize: '100% 100%',
@@ -50,9 +45,7 @@ export default function Home() {
             <div className="bg-white border-[2px] border-black rounded-2xl p-4 md:p-6 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
               <p
                 className="text-xs md:text-sm lg:text-base font-bold leading-relaxed text-black"
-                style={{
-                  fontFamily: '"Comic Sans MS", "Chalkboard SE", sans-serif',
-                }}
+                style={{ fontFamily: '"Comic Sans MS", "Chalkboard SE", sans-serif' }}
               >
                 Welcome to Chipper world! A place full of fun, smiles, and endless adventure.
                 Let's crack open some joy together! Join Chipper as he bounces through life,
@@ -63,18 +56,15 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Positioned to the end (right) of the container */}
             <h1
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-6 md:mt-10 lg:mt-12 font-black text-black tracking-wide select-none text-right animate-text-float"
-              style={{
-                fontFamily: '"Comic Sans MS", "Chalkboard SE", sans-serif',
-              }}
+              style={{ fontFamily: '"Comic Sans MS", "Chalkboard SE", sans-serif' }}
             >
               CHIPPER
             </h1>
           </div>
 
-          {/* Character with adjusted movement animation */}
+          {/* Character */}
           <div className="absolute left-8 md:left-[85%] lg:left-[60%] bottom-0 z-40 w-32 sm:w-40 md:w-48 lg:w-[180px] translate-x-[50px] animate-move-float">
             <img
               src={chipperWave}
@@ -84,6 +74,56 @@ export default function Home() {
           </div>
 
         </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          MOBILE  (hidden on md+)
+          Layout: CHIPPER title top-center over character,
+                  text card below, character tall behind
+      ═══════════════════════════════════════════ */}
+      <section
+        className="relative z-10 min-h-screen w-full flex md:hidden flex-col overflow-hidden"
+        style={{
+          backgroundImage: `url(${homeBg})`,
+          backgroundSize: '100% 100%',
+          backgroundPosition: 'center bottom',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        {/* CHIPPER title — top center */}
+        <h1
+          className="relative z-30 text-5xl font-black text-black tracking-wide text-center mt-20 select-none animate-text-float"
+          style={{ fontFamily: '"Comic Sans MS", "Chalkboard SE", sans-serif' }}
+        >
+          CHIPPER
+        </h1>
+
+        {/* Character — centered, tall, behind the card */}
+        <div className="absolute bottom-30 left-1/2 -translate-x-1/2 w-[30%] z-20 pointer-events-none animate-mobile-float">
+          <img
+            src={chipperWave}
+            alt="Waving Chipper Character"
+            className="w-full h-auto object-contain drop-shadow-[0_8px_12px_rgba(0,0,0,0.15)]"
+          />
+        </div>
+
+        {/* Text card — sits in the middle, in front of character */}
+        <div className="relative z-30 mx-4 mt-6">
+          <div className="bg-white border-[2px] border-black rounded-2xl p-5 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
+            <p
+              className="text-sm font-bold leading-relaxed text-black text-center"
+              style={{ fontFamily: '"Comic Sans MS", "Chalkboard SE", sans-serif' }}
+            >
+              Welcome to Chipper world! A place full of fun, smiles, and endless adventure.
+              Let's crack open some joy together! Join Chipper as he bounces through life,
+              spreading positivity wherever he goes. Whether you're a creator, a collector,
+              or just someone looking for a new adventure, Chipper is all about connecting
+              like-minded individuals through unique experiences. Get ready for a delightful
+              journey with your new favorite character!
+            </p>
+          </div>
+        </div>
+
       </section>
     </div>
   );
